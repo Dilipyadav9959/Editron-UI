@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <title>Editron — Better edits. Faster.</title>
+  <meta name="description" content="Editron monochrome AI video editing interface concept.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <section class="landing-screen" id="landingScreen">
+    <div class="landing-top">
+      <span class="landing-wordmark"><img src="assets/editron-mark.png" alt="" class="landing-mini-logo"> editron<span>.</span></span>
+      <span class="landing-label">AI VIDEO EDITING WORKSPACE</span>
+    </div>
+    <div class="landing-center">
+      <img class="landing-logo" src="assets/editron-mark.png" alt="Editron logo">
+      <div class="landing-overline">MAKE EVERY FRAME COUNT</div>
+      <h1>editron<span>.</span></h1>
+      <p>Turn raw footage into polished videos.<br>Cut smarter. Caption faster. Create more.</p>
+      <button class="get-started-btn" id="getStarted">Get started <span>↗</span></button>
+      <div class="landing-footnote">NO COMPLEX TIMELINES. JUST BETTER EDITS.</div>
+    </div>
+    <div class="landing-bottom">
+      <span>BETTER EDITS.<br>FASTER.</span>
+      <span class="landing-bottom-mark">E / 01</span>
+    </div>
+  </section>
+
+  <div class="app-shell dashboard-hidden" id="dashboardApp">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Editron home"><img src="assets/editron-mark.png" alt="" class="brand-logo"><span>editron<span class="brand-dot">.</span></span></a>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-page="home"><span class="nav-icon">⌂</span><span>Home</span></a>
+        <a class="nav-link" href="#new-project" data-page="new-project"><span class="nav-icon">＋</span><span>New Project</span></a>
+        <a class="nav-link" href="#cut-engine" data-page="cut-engine"><span class="nav-icon">✂</span><span>AI Cut Engine</span></a>
+        <a class="nav-link" href="#captions" data-page="captions"><span class="nav-icon">▣</span><span>AI Captions</span></a>
+        <a class="nav-link" href="#projects" data-page="projects"><span class="nav-icon">▱</span><span>Projects</span></a>
+        <a class="nav-link" href="#settings" data-page="settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <p>Better edits.<br>Faster.</p>
+        <span class="tiny-rule"></span>
+        <small>EDITRON · CONCEPT 01</small>
+      </div>
+    </aside>
+
+    <main class="main-area" id="home">
+      <header class="topbar">
+        <button class="icon-btn mobile-menu" id="menuToggle" aria-label="Open navigation">☰</button><button class="back-home" id="backHome" type="button">← <span>Home</span></button>
+        <div class="top-line"></div>
+        <div class="top-actions">
+          <button class="icon-btn" aria-label="Notifications" title="Notifications">♧</button>
+          <button class="profile" id="profileButton">
+            <span class="avatar">R</span><span class="profile-name">Creator</span><span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="content-grid">
+        <section class="workspace">
+          <section class="welcome-block">
+            <div class="eyebrow">WELCOME BACK,</div>
+            <h1>Make something<br><span class="serif-accent">remarkable.</span></h1>
+            <p class="welcome-copy">Turn your raw footage into scroll-stopping content.<br class="desktop-only"> With AI, it’s faster, easier and smarter.</p>
+            <div class="orb" aria-hidden="true"><span></span></div>
+          </section>
+
+          <section class="upload-panel" id="new-project">
+            <input type="file" id="videoInput" accept="video/mp4,video/quicktime,video/webm,video/x-matroska,.avi" hidden>
+            <button class="upload-zone" id="uploadZone" type="button">
+              <span class="upload-symbol">↑</span>
+              <strong id="uploadTitle">Drop your video here</strong>
+              <span id="uploadSub">or click to browse</span>
+              <span class="file-spec">MP4, MOV, WEBM <i>·</i> Max 500MB</span>
+            </button>
+            <div class="upload-footer"><span>YOUR NEXT EDIT STARTS HERE</span><span class="upload-hint">Select a video to preview the upload state</span></div>
+          </section>
+
+          <section class="tools-section">
+            <div class="section-heading"><h2>Quick tools</h2><span>CHOOSE YOUR WORKFLOW</span></div>
+            <div class="tool-grid">
+              <a class="tool-card cut-card" href="#cut-engine" data-page="cut-engine">
+                <span class="tool-icon">✂</span><span class="card-kicker">01 / CLEAN YOUR FOOTAGE</span>
+                <h3>AI Cut Engine</h3>
+                <p>Remove silence, bad takes and filler for a cleaner first cut.</p>
+                <span class="text-link">Start editing <b>↗</b></span>
+                <span class="abstract-wave" aria-hidden="true"></span>
+              </a>
+              <a class="tool-card caption-card" href="#captions" data-page="captions">
+                <span class="tool-icon">▣</span><span class="card-kicker">02 / FIND YOUR WORDS</span>
+                <h3>AI Captions</h3>
+                <p>Generate accurate subtitles and style them for your audience.</p>
+                <span class="text-link">Start creating <b>↗</b></span>
+                <span class="grain-shape" aria-hidden="true"></span>
+              </a>
+            </div>
+          </section>
+
+          <section class="activity-section">
+            <div class="activity-title"><h2>Recent activity</h2><span></span><small>NOTHING YET</small></div>
+            <div class="empty-state">
+              <div class="empty-icon">▤</div>
+              <div><strong>Your projects will appear here</strong><p>Start by uploading a video or using one of the AI tools.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <aside class="recent-rail">
+          <div class="rail-heading"><h2>Recent projects</h2><a href="#projects" data-page="projects">View all ↗</a></div>
+          <div class="project-list" id="projectList">
+            <article class="project-row" data-name="Brand Reel" data-status="Edited"><div class="project-thumb thumb-one"></div><div class="project-info"><strong>Brand Reel</strong><span>2m 14s <i>·</i> Oct 28, 2026</span></div><button class="dots" aria-label="Project options">⋮</button></article>
+            <article class="project-row" data-name="Product Launch" data-status="Edited"><div class="project-thumb thumb-two"></div><div class="project-info"><strong>Product Launch</strong><span>1m 08s <i>·</i> Oct 27, 2026</span></div><button class="dots" aria-label="Project options">⋮</button></article>
+            <article class="project-row" data-name="Social Media Edit" data-status="Draft"><div class="project-thumb thumb-three"></div><div class="project-info"><strong>Social Media Edit</strong><span>45s <i>·</i> Oct 26, 2026</span></div><button class="dots" aria-label="Project options">⋮</button></article>
+            <article class="project-row" data-name="Travel Vlog" data-status="Edited"><div class="project-thumb thumb-four"></div><div class="project-info"><strong>Travel Vlog</strong><span>2m 36s <i>·</i> Oct 25, 2026</span></div><button class="dots" aria-label="Project options">⋮</button></article>
+          </div>
+          <div class="rail-note"><span class="note-mark">✳</span><p>Make space for<br><em>the story.</em></p><small>EDITRON / AI VIDEO WORKSPACE</small></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
