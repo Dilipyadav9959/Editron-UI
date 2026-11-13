@@ -10,9 +10,34 @@ const showToast = msg => {
 };
 
 /* Sidebar drawer: closed drawer is removed from the tab order on mobile */
-const syncSidebar = () => { sidebar.inert = mq.matches && !sidebar.classList.contains('open'); };
+const KEY = 'editron.sidebar.collapsed', topToggle = $('menuToggle'), sideToggle = $('sidebarToggle');
+const isCollapsed = () => app.classList.contains('collapsed');
+const syncSidebar = () => {
+  const open = mq.matches ? sidebar.classList.contains('open') : !isCollapsed();
+  sidebar.inert = !open;
+  [topToggle, sideToggle].forEach(b => {
+    b.setAttribute('aria-expanded', open);
+    b.setAttribute('aria-label', open ? 'Hide sidebar' : 'Show sidebar');
+  });
+};
+function toggleSidebar() {
+  if (mq.matches) sidebar.classList.toggle('open');
+  else {
+    app.classList.toggle('collapsed');
+    try { localStorage.setItem(KEY, isCollapsed() ? '1' : '0'); } catch {}
+  }
+  syncSidebar();
+  (sidebar.inert ? topToggle : sideToggle).focus();
+}
+try { if (localStorage.getItem(KEY) === '1') app.classList.add('collapsed'); } catch {}
 mq.addEventListener('change', syncSidebar); syncSidebar();
-$('menuToggle').addEventListener('click', () => { sidebar.classList.toggle('open'); syncSidebar(); });
+topToggle.addEventListener('click', toggleSidebar);
+sideToggle.addEventListener('click', toggleSidebar);
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mq.matches && sidebar.classList.contains('open')) return toggleSidebar();
+  if (e.target.matches('input,textarea,[contenteditable]')) return;
+  if (((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'b') || e.key === '[') { e.preventDefault(); toggleSidebar(); }
+});
 document.addEventListener('click', e => {
   if (mq.matches && sidebar.classList.contains('open') && !sidebar.contains(e.target) && !$('menuToggle').contains(e.target)) {
     sidebar.classList.remove('open'); syncSidebar();
